@@ -1,0 +1,49 @@
+.featured-book {
+  position: relative;
+  padding: 30px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .recommended {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    background-color: $c-accent;
+    color: $c-white;
+    padding: 2px 4px 3px 4px;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  img {
+    @include resolution_tablet-and-up {
+      width: 170px;
+      margin-right: 20px;
+    }
+
+    @include resolution_smartphone {
+      width: 220px;
+    }
+  }
+
+  .book-info {
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0;
+    }
+
+    .author {
+      font-size: .8rem;
+    }
+
+    .synopsis {
+      margin-top: 1.6rem;
+      p {
+        font-size: .8rem;
+      }
+    }
+  }
+}

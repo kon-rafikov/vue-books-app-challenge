@@ -1,0 +1,29 @@
+body {
+  position: relative;
+  background: $c-general;
+  font-family: $font-family;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &, * {
+    box-sizing: border-box;
+  }
+
+  @include resolution_desktop-and-up {
+    font-size: 18px;
+  }
+
+  @include resolution_tablet {
+    font-size: 17px;
+  }
+
+  @include resolution_smartphone {
+    font-size: 16px;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
