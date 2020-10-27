@@ -14,7 +14,8 @@ $c-gray-100: #cccccc;
 $c-gray-500: #292929;
 
 // Shadows
-$shadow-default: 0 0 10px 0 rgba($c-gray-500, .5);
+$shadow-default: 15px 0 10px -1px rgba($c-gray-500, .5);
 
 // Misc
 $border-radius: 5px;
+$border-radius-l: 15px;
