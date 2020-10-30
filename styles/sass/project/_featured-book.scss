@@ -1,12 +1,22 @@
 .featured-book {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: $c-general;
   width: 100%;
   padding: 30px;
-  background-color: $c-general;
-  margin: 20px 0;
+  margin-bottom: 20px;
 
+  @include resolution_phablet-and-up {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  @include resolution_phone {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   .recommended {
     position: absolute;
@@ -14,41 +24,35 @@
     right: 0;
     z-index: 0;
     background-color: $c-accent;
+    font-size: 13px;
     color: $c-white;
-    padding: 2px 4px 3px 4px;
-    border-bottom-left-radius: $border-radius;
+    padding: 7px 10px;
+    border-bottom-left-radius: $border-radius-m;
   }
 
   img {
     display: inline-flex;
+    margin-bottom: 20px;
+    border-radius: $border-radius-l;
+    box-shadow: $shadow-default;
 
-    @include resolution_tablet-and-up {
-      width: 170px;
+    @include resolution_phablet-and-up {
+      width: 260px;
       margin-right: 20px;
     }
 
-    @include resolution_smartphone {
+    @include resolution_phone {
       width: 220px;
     }
   }
 
   .book-info {
     display: inline-flex;
+    flex-flow: column;
+    font-size: 15px;
 
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0;
-    }
-
-    .author {
-      font-size: .8rem;
-    }
-
-    .synopsis {
-      margin-top: 1.6rem;
-      p {
-        font-size: .8rem;
-      }
+    .title { // h2
+      font-size: 32px;
     }
   }
 }

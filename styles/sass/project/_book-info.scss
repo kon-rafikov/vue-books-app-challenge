@@ -1,0 +1,24 @@
+.book-info {
+  &,
+  .title,
+  .author,
+  .synopsis {
+    display: block;
+    width: 100%;
+  }
+
+  .title,
+  .author,
+  .synopsis {
+    font-size: inherit;
+  }
+
+  .title {
+    font-size: 110%;
+    font-weight: 600;
+  }
+
+  .author {
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,52 @@
+.book {
+  position: relative;
+  flex-flow: column;
+  padding: 15px;
+  margin: 10px;
+  background-color: $c-general;
+  border-radius: $border-radius-m;
+
+  .position {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    span { // badge
+      $badge-size: 34px;
+      $border-width: 2px;
+
+      display: block;
+      float: right;
+      width: $badge-size;
+      height: $badge-size;
+      line-height: $badge-size - $border-width;
+      text-align: center;
+      color: $c-accent;
+      font-weight: 500;
+      border-radius: 50%;
+      border: $border-width solid $c-accent;
+    }
+  }
+
+  .book-cover {
+    width: 100%;
+    margin-bottom: 10px;
+
+    img {
+      height: 200px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: $border-radius-m;
+      box-shadow: $shadow-default;
+    }
+  }
+
+  .book-info {
+    width: 100%;
+    font-size: 14px;
+
+    .title {
+      margin-bottom: .5em;
+    }
+  }
+}

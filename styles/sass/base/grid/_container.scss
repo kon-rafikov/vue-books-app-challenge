@@ -3,10 +3,10 @@
  */
 
 // You may use this mixin to apply .container base styles to any parent block with .col elements
-@mixin container-core {
+@mixin container-core($align-items: flex-start) {
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-start;
+  align-items: $align-items;
   justify-content: flex-start;
 
   &, * {
@@ -22,11 +22,11 @@
   @include container-core;
 
   @include resolution_widescreen {
-    width: $widescreen;
+    width: $widescreen - $gutter;
   }
 
   @include resolution_desktop {
-    width: $desktop;
+    width: $desktop - $gutter;
   }
 
   @include resolution_tablet {
@@ -37,7 +37,6 @@
   @include resolution_phablet {
     width: 100%;
     max-width: $tablet;
-
   }
 
   @include resolution_phone {

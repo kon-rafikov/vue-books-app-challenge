@@ -9,10 +9,12 @@
   flex-grow: 1;
   max-width: 100%;
 }
+
 @mixin col-generator($col-width) {
-  flex: 0 0 #{(100% / $columns-quantity) * $col-width};
+  flex: 0 1 #{(100% / $columns-quantity) * $col-width};
   max-width: #{(100% / $columns-quantity) * $col-width};
 }
+
 // --
 
 .container {
@@ -23,12 +25,32 @@
       &-#{$i} {
         @include col-generator($i);
       }
+
+      // By default columns get 100% width on smartphone
+      @include resolution_smartphone {
+        &.col-#{$i} {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    }
+
+    // Special classes for responsive layout on different resolutions
+    // xl - widescreen
+    // l - desktop
+    // m - phablet and tablet
+    // s - phone
+    &[class="col-xl-"],
+    &[class="col-l-"],
+    &[class="col-m-"],
+    &[class="col-s-"] {
+      max-width: none;
     }
 
     @include resolution_widescreen {
       @for $i from 1 through $columns-quantity {
-        &.col-xs-#{$i} {
-          flex: 0 0 #{(100% / $columns-quantity) * $i};
+        &.col-xl-#{$i} {
+          @include col-generator($i);
         }
       }
     }
@@ -36,40 +58,26 @@
     @include resolution_desktop {
       @for $i from 1 through $columns-quantity {
         &.col-l-#{$i} {
-          flex: 0 0 #{(100% / $columns-quantity) * $i};
+          @include col-generator($i);
         }
       }
     }
 
-    @include resolution_tablet {
+    @include resolution_phablet-and-tablet {
       @for $i from 1 through $columns-quantity {
         &.col-m-#{$i} {
-          flex: 0 0 100%;
-          min-width: $tablet - $gutter;
-          max-width: $desktop - $gutter;
+          @include col-generator($i);
         }
       }
-    }
-
-    @include resolution_phablet {
-      @for $i from 1 through $columns-quantity {
-        &.col-s-#{$i} {
-          flex: 0 0 100%;
-          min-width: $phablet - $gutter;
-          max-width: $tablet - $gutter;
-        }
-      }
-
     }
 
     @include resolution_phone {
       @for $i from 1 through $columns-quantity {
-        &.col-#{$i} {
-          flex: 0 0 100%;
-          min-width: $smartphone - $gutter;
-          max-width: $phablet - $gutter;
+        &.col-s-#{$i} {
+          @include col-generator($i);
         }
       }
     }
   }
 }
+

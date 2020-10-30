@@ -3,7 +3,7 @@
 //
 
 $gutter: 10px;
-$columns-quantity: 16;
+$columns-quantity: 12;
 $max-scroll-width: 30px;
 
 // BREAKPOINTS
@@ -18,7 +18,7 @@ $defaultMap: (
 
 // The ones taken from Reedsy website
 $reedsyCurrentMap: (
-  widescreen: 1230px,
+  widescreen: 1024px,
   desktop: 1024px,
   tablet: 900px,
   phablet: 670px,

@@ -1,9 +1,12 @@
 .top-voted {
-  background-color: $c-accent;
+  width: 100%;
   padding: 30px;
 
   h2 {
-    font-size: 1.2rem;
-    margin-bottom: .2em;
+    margin-bottom: 15px;
+  }
+
+  .books-list {
+    margin-bottom: -10px;
   }
 }

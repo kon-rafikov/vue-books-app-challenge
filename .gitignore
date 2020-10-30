@@ -8,3 +8,7 @@ Thumbs.db
 .idea
 node_modules/
 *.css.map
+
+# Generated output
+# styles/style.css
+# styles/style.css.map

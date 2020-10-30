@@ -1,7 +1,16 @@
-@import "project/top-actions";
-@import "project/main-section";
+// Main layout blocks
+@import "project/sections/top-actions";
+@import "project/sections/main-section";
+@import "project/sections/footer";
+
+// Reusable components
+@import "project/book-info";
+@import "project/book";
+@import "project/book-list";
+
+// Sections
 @import "project/featured-book";
 @import "project/top-voted";
-@import "project/book-list";
-@import "project/footer";
+
+
 
