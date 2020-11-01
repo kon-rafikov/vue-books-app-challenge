@@ -40,7 +40,6 @@
     },
     created() {
       const queryStr = 'http://localhost:3000/books/' + this.query;
-      console.log(queryStr);
 
       axios
         .get(queryStr)

@@ -2,7 +2,7 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <div
-        v-for="book in apiData" :key="book.slug"
+        v-for="book in apiData" :key="book['slug']"
         class="book"
     >
       <div class="book__cover">
@@ -11,7 +11,7 @@
       <div class="book__info">
         <div class="title">
           <router-link
-              v-bind:to="'/' + book.slug"
+              v-bind:to="'/' + book['slug']"
           >
             {{book.title}}
           </router-link>
