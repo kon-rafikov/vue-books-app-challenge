@@ -1,33 +1,54 @@
 <template>
   <div id="app">
-    <books-list :books="info"></books-list>
+    <div>
+      <router-link to="/">Logo</router-link>
+    </div>
+    <router-view
+        :apiData="info"
+    ></router-view>
   </div>
 </template>
 
 <script>
   import axios from "axios";
-  import BooksList from './components/BooksList.vue'
-  // import BookPage from './components/BookPage.vue'
 
   export default {
     name: 'App',
-    components: {
-      BooksList,
-    },
-    data: function() {
+    data: function () {
       return {
         info: null
       };
     },
-    mounted() {
-      axios
-        .get('http://localhost:3000/books')
-        .then(
-          response => (this.info = response.data.books)
-        )
-        .catch(function (error) {
-          console.warn(error);
-        });
+    methods: {
+      apiGetBooksList() {
+        if (this.$route.params.id) {
+          console.log(this.$route.params.id);
+          axios
+            .get('http://localhost:3000/books/' + this.$route.params.id)
+            .then(
+              response => (this.info = response.data.books)
+            )
+            .catch(function (error) {
+              console.warn(error);
+            });
+        } else {
+          axios
+            .get('http://localhost:3000/books')
+            .then(
+              response => (this.info = response.data.books)
+            )
+            .catch(function (error) {
+              console.warn(error);
+            });
+        }
+      },
+    },
+    created() {
+      this.apiGetBooksList();
+    },
+    watch: {
+      // call again the method if the route changes
+      '$route': 'apiGetBooksList'
     },
   }
 </script>

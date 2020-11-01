@@ -1,15 +1,22 @@
 <template>
   <div class="container">
-    <h1>{{ name }}</h1>
+    <h1>{{ title }}</h1>
     <div
-        v-for="book in books" :key="book.author"
+        v-for="book in apiData" :key="book.author"
         class="book"
     >
       <div class="book__cover">
         <img scr="" alt="">
       </div>
       <div class="book__info">
-        <div class="title">{{book.title}}</div>
+        <div class="title">
+          <router-link
+              v-bind:to="'/' + book.slug"
+              >
+            {{book.title}}
+          </router-link>
+
+        </div>
         <div class="author">{{book.author}}</div>
         <div class="synopsis">{{book.synopsis}}</div>
       </div>
@@ -25,17 +32,17 @@
   export default {
     name: 'BooksList',
     props: {
-      books: {
+      apiData: {
         type: Array,
         default: null
       },
-      name: {
+      title: {
         type: String,
         default: 'Books List'
-      },
-      methods: {
       }
-    }
+    },
+    mounted() {
+    },
   }
 </script>
 

@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h1>{{ name }}</h1>
+    <h1>{{ title }}</h1>
+    <article>
+      id: {{ query }}
+    </article>
   </div>
 </template>
 
@@ -8,11 +11,19 @@
   export default {
     name: 'BookPage',
     props: {
-      name: {
+      title: {
         type: String,
         default: 'Book Page'
-      }
-    }
+      },
+      apiData: {
+        type: Array,
+        default: null
+      },
+      query: String,
+    },
+    created() {
+
+    },
   }
 </script>
 
