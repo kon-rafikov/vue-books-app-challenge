@@ -2,17 +2,17 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <div
-        v-for="book in apiData" :key="book.author"
+        v-for="book in apiData" :key="book.slug"
         class="book"
     >
       <div class="book__cover">
-        <img scr="" alt="">
+        <img :scr="book.cover" :alt="book.title">
       </div>
       <div class="book__info">
         <div class="title">
           <router-link
               v-bind:to="'/' + book.slug"
-              >
+          >
             {{book.title}}
           </router-link>
 
@@ -29,20 +29,34 @@
 </template>
 
 <script>
+  import axios from "axios";
+
   export default {
     name: 'BooksList',
     props: {
-      apiData: {
-        type: Array,
-        default: null
-      },
       title: {
         type: String,
         default: 'Books List'
       }
     },
-    mounted() {
+    data: function() {
+      return {
+        apiData: {
+          type: Array,
+          default: null
+        },
+      }
     },
+    created() {
+      axios
+        .get('http://localhost:3000/books')
+        .then(
+          response => (this.apiData = response.data.books)
+        )
+        .catch(function (error) {
+          console.warn(error);
+        });
+    }
   }
 </script>
 

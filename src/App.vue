@@ -10,46 +10,13 @@
 </template>
 
 <script>
-  import axios from "axios";
-
   export default {
     name: 'App',
     data: function () {
       return {
         info: null
       };
-    },
-    methods: {
-      apiGetBooksList() {
-        if (this.$route.params.id) {
-          console.log(this.$route.params.id);
-          axios
-            .get('http://localhost:3000/books/' + this.$route.params.id)
-            .then(
-              response => (this.info = response.data.books)
-            )
-            .catch(function (error) {
-              console.warn(error);
-            });
-        } else {
-          axios
-            .get('http://localhost:3000/books')
-            .then(
-              response => (this.info = response.data.books)
-            )
-            .catch(function (error) {
-              console.warn(error);
-            });
-        }
-      },
-    },
-    created() {
-      this.apiGetBooksList();
-    },
-    watch: {
-      // call again the method if the route changes
-      '$route': 'apiGetBooksList'
-    },
+    }
   }
 </script>
 
