@@ -1,0 +1,48 @@
+.book {
+  display: flex;
+  position: relative;
+  padding: 15px;
+  margin: 10px;
+  background-color: $c-general;
+  border-radius: $border-radius-m;
+
+  @include resolution_phablet-and-up {
+    flex-flow: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  @include resolution_phone {
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  .book-cover {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 10px;
+
+    img {
+      height: 200px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: $border-radius-m;
+      box-shadow: $shadow-default;
+
+      @include resolution_phablet-and-up {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .book-info {
+    display: inline-flex;
+    flex-flow: column;
+    width: 100%;
+    font-size: 14px;
+
+    .title {
+      margin-bottom: .5em;
+    }
+  }
+}

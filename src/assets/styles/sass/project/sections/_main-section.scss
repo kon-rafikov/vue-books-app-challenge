@@ -1,0 +1,15 @@
+.main {
+  & > .container {
+    background-color: $c-white;
+    border-radius: $border-radius-l;
+    padding: 30px 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: $shadow-default;
+  }
+
+  h1 {
+    @extend %wrapper;
+    margin-bottom: 30px;
+  }
+}

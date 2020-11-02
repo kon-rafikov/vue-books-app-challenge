@@ -1,0 +1,34 @@
+/*
+ * Container
+ */
+
+.container {
+  padding: 0 #{$gutter};
+  margin-left: auto;
+  margin-right: auto;
+
+  @include container-core;
+
+  @include resolution_widescreen {
+    width: $widescreen - $gutter;
+  }
+
+  @include resolution_desktop {
+    width: $desktop - $gutter;
+  }
+
+  @include resolution_tablet {
+    width: 100%;
+    max-width: $desktop - $gutter;
+  }
+
+  @include resolution_phablet {
+    width: 100%;
+    max-width: $tablet;
+  }
+
+  @include resolution_phone {
+    width: 100%;
+    max-width: $phablet;
+  }
+}

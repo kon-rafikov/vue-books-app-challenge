@@ -1,0 +1,28 @@
+//
+// Grid utils
+//
+
+// You may use this mixin to apply .container base styles to any parent block with .col elements
+@mixin container-core($align-items: flex-start) {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: $align-items;
+  justify-content: flex-start;
+
+  &, * {
+    box-sizing: border-box;
+  }
+}
+
+// You may use the following mixins as a replacement for .col.col-* classes
+@mixin col-core {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@mixin col-generator($col-width) {
+  flex: 0 1 #{(100% / $columns-quantity) * $col-width};
+  max-width: #{(100% / $columns-quantity) * $col-width};
+}
