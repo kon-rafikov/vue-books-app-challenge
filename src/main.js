@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import BooksList from './components/books-list/books-list.vue'
-import BookPage from './components/book-page/book-page.vue'
+import BooksList from './components/pages/books-list/books-list.vue'
+import BookPage from './components/pages/book-page/book-page.vue'
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
