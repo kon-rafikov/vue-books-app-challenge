@@ -1,12 +1,11 @@
 .top-books {
-  width: 100%;
-  padding: 30px;
-
   h1 {
-    margin-bottom: 15px;
-  }
-
-  .books-list {
-    margin-bottom: -10px;
+    width: 100%;
+    padding: 18px 30px;
+    background: $c-general;
+    font-size: 35px;
+    font-weight: 600;
+    color: $c-accent-200;
+    text-align: center;
   }
 }

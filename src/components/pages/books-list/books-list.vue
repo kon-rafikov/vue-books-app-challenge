@@ -1,31 +1,33 @@
 <template>
-  <div class="top-books">
+  <div class="container top-books">
     <h1>{{ title }}</h1>
     <div class="books-list" v-if="fetchedData.length > 1">
       <div v-for="book in fetchedData" :key="book.slug"
            class="col col-4 col-m-12 col-xs-12">
         <div class="book">
           <router-link
-              class="book-cover"
+              class="book__cover"
               v-bind:to="'/' + book.slug"
               :title="book.title"
               :style="{ backgroundImage: `url(${book.cover})` }">
           </router-link>
 
-          <div class="book-info">
-            <div class="title">
+          <div class="book__info">
+            <h3 class="title">
               <router-link
                   v-bind:to="'/' + book.slug"
               >
                 {{ book.title }}
               </router-link>
-            </div>
-            <div class="author">{{ book.author }}</div>
-            <div class="synopsis">{{ book.synopsis }}</div>
 
-            <div class="book-actions">
-              <button>Vote</button>
-              <span class="rating">{{ book.rating }}</span>
+              <span class="rating">({{ book.rating }}/10)</span>
+            </h3>
+            <div class="author">{{ book.author }}</div>
+            <div class="synopsis">{{ truncateString(book.synopsis, 200) }}</div>
+
+            <div class="book__actions">
+              <app-button>Upvote</app-button>
+              <span class="counter">Upvoted {{ book.upvotes }} times</span>
             </div>
           </div>
         </div>
@@ -36,9 +38,11 @@
 
 <script>
 import axios from "axios";
+import AppButton from "@/components/ui/app-button/app-button";
 
 export default {
   name: 'BooksList',
+  components: {AppButton},
   props: {
     title: {
       type: String,
@@ -53,7 +57,16 @@ export default {
       },
     }
   },
+  methods: {
+    truncateString(str, limit) {
+      if (str.length <= limit) {
+        return str
+      }
+      return str.slice(0, limit) + '...'
+    }
+  },
   created() {
+    console.log(this.fetchedData.length);
     const baseUrl = window.currentBuild.baseUrl;
 
     axios

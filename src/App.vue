@@ -5,11 +5,9 @@
     ></spinner>
     <app-header></app-header>
     <div class="main">
-      <div class="container">
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-      </div>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
     <app-footer></app-footer>
   </div>

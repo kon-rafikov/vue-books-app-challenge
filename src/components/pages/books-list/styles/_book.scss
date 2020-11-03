@@ -1,46 +1,63 @@
 .book {
   display: flex;
   position: relative;
-  padding: 15px;
-  margin: 10px;
-  background-color: $c-general;
-  border-radius: $border-radius-m;
 
-  @include resolution_desktop-and-up {
-    flex-flow: column wrap;
-    justify-content: flex-start;
-  }
-
-  @include resolution_smartphone-and-tablet {
-    flex-flow: row-reverse nowrap;
-    justify-content: space-between;
-  }
-
-  .book-cover {
-    $image-width: 100px;
+  &__cover {
+    $image-width: 120px;
+    $image-height: 190px;
     display: inline-flex;
     flex: 0 0 $image-width;
-    align-items: flex-start;
-    max-width: $image-width;
-    height: 160px;
+    height: $image-height;
+    min-height: $image-height;
+    min-width: $image-width; // fix for width clamping
     border-radius: $border-radius;
-    margin-bottom: 10px;
-    background: rgba($c-accent, .35) top center / cover; // user will see background while image loading
+    background: rgba($c-gray-500, .15) top center / cover; // user will see background while image loading
     box-shadow: $shadow-light;
-
-    @include resolution_smartphone-and-tablet {
-      margin-left: 20px;
-    }
   }
 
-  .book-info {
+  &__info {
     display: inline-flex;
     flex-flow: column;
+    justify-content: space-between;
     width: 100%;
     font-size: 14px;
 
+    .title,
+    .author,
+    .synopsis {
+      display: block;
+      width: 100%;
+    }
+
     .title {
+      font-size: 20px;
+      color: $c-accent-300;
+      font-weight: 600;
       margin-bottom: .5em;
+
+      .rating {
+        font-size: 15px;
+        color: $c-gray-500;
+        font-weight: normal;
+      }
+    }
+
+    .author {
+      font-style: italic;
+      color: $c-gray-400;
+      margin-bottom: 1.3em;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+
+    .counter {
+      margin-left: 15px;
     }
   }
 }

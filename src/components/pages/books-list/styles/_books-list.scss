@@ -1,4 +1,58 @@
 .books-list {
   @include container-core(stretch);
-  margin: 0 -10px;
+  @include resolution_desktop-and-up {
+    padding: 20px;
+    counter-reset: section;
+  }
+
+  .book {
+    background-color: $c-general;
+
+    @include resolution_desktop-and-up {
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      margin: 10px;
+      border-radius: $border-radius-m;
+
+      &__cover {
+        margin-bottom: 10px;
+      }
+
+      .title .rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    @include resolution_smartphone-and-tablet {
+      flex-flow: row-reverse nowrap;
+      justify-content: space-between;
+      padding: 30px;
+
+      &__cover {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .col {
+    counter-increment: section;
+    // CSS counters are used instead of displaying an iterator value inside v-for
+    // because its value changes if an element is removed from DOM tree.
+    // Example: Click on "Don't recommend" button which deletes a node.
+    .title {
+      &::before {
+        content: counter(section) ". ";
+      }
+    }
+
+    @include resolution_smartphone-and-tablet {
+      &:nth-child(odd) .book {
+        background-color: $c-white;
+      }
+    }
+  }
 }

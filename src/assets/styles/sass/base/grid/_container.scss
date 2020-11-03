@@ -14,17 +14,16 @@
   }
 
   @include resolution_desktop {
-    width: $tablet - $gutter;
+    width: $tablet;
   }
 
   @include resolution_tablet {
-    width: 100%;
-    max-width: $tablet - $gutter;
+    width: $phablet;
   }
 
   @include resolution_phablet {
     width: 100%;
-    max-width: $tablet;
+    max-width: $phablet - $gutter;
   }
 
   @include resolution_phone {

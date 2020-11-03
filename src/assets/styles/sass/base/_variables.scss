@@ -9,10 +9,13 @@ $fw-bold: 900;
 // Colors
 $c-white: #fff;
 $c-general: #faf9f3;
-$c-accent: #ebc100;
+$c-accent-100: #ebc100;
+$c-accent-200: darken($c-accent-100, 5%);
+$c-accent-300: darken($c-accent-100, 15%);
 $c-gray-100: #eee;
 $c-gray-200: #e5e5e5;
 $c-gray-300: #ccc;
+$c-gray-400: #333;
 $c-gray-500: #292929;
 
 // Shadows

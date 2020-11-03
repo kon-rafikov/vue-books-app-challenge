@@ -63,11 +63,11 @@
         }
 
         &:hover {
-          background-color: rgba($c-accent, .5);
+          background-color: rgba($c-accent-100, .75);
         }
 
         &:active {
-          background-color: rgba($c-accent, .75);
+          background-color: $c-accent-100;
         }
 
         &.router-link-active {
@@ -75,7 +75,7 @@
           &:hover,
           &:active {
             color: $c-white;
-            background-color: $c-accent;
+            background-color: $c-accent-200;
             cursor: default; // active item is not clickable
             pointer-events: none;
           }
