@@ -16,7 +16,8 @@ $c-gray-300: #ccc;
 $c-gray-500: #292929;
 
 // Shadows
-$shadow-default: 0 1px 5px 0 rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0,0, .08);
+$shadow-default: 0 1px 5px 0 rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0, 0, .1);
+$shadow-light: 0 1px 5px 0 rgba(0, 0, 0, .25);
 
 // Misc
 $border-radius: 5px;

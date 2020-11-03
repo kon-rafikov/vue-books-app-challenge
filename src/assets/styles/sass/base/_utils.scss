@@ -1,3 +1,25 @@
+// Link types generator
+@mixin link($c-link, $c-hover, $c-active, $underline) {
+  font-weight: 500;
+
+  &:link,
+  &:visited {
+    color: $c-link;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $c-hover;
+    text-decoration: $underline;
+  }
+
+  &:active {
+    color: $c-active;
+    text-decoration: $underline;
+  }
+}
+
+// z-index layers order
 @function z($layer) {
   $z-indeces: (
     'popovers': 50,

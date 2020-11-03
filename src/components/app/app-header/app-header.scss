@@ -1,7 +1,8 @@
+@import "src/assets/styles/sass/dependencies";
+
 .top-actions {
-  @extend %wrapper;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  width: 100%;
+  padding: 15px 30px;
 
   & > .container {
     flex-flow: row wrap;
@@ -9,9 +10,10 @@
     justify-content: space-between;
   }
 
-  .top-logo { // a
+  &__logo { // a
     display: flex;
     flex: 0 1 200px;
+    max-width: 200px;
     height: 34px;
     flex-flow: row nowrap;
     align-items: center;
@@ -23,7 +25,7 @@
     user-select: none;
   }
 
-  .top-menu {
+  &__menu {
     display: flex;
     flex: 0 1 auto;
     flex-flow: row nowrap;
@@ -48,7 +50,7 @@
         line-height: 38px;
         white-space: nowrap;
         border-radius: $border-radius;
-        transition: color, background-color .15s ease-in;
+        transition: color, background-color .05s ease-in;
 
         &:link,
         &:visited {
@@ -67,10 +69,8 @@
         &:active {
           background-color: rgba($c-accent, .75);
         }
-      }
 
-      &.active {
-        a {
+        &.router-link-active {
           &,
           &:hover,
           &:active {

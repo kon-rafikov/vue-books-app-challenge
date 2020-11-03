@@ -1,18 +1,47 @@
 <template>
-  <div class="container">
+  <div class="container book-page">
     <template v-if="fetchedData.length !== 0">
-      <h1>{{ fetchedData.title }}</h1>
-      {{ fetchedData.author }}
-      {{ fetchedData.cover }}
-      {{ fetchedData.rating }}
+      <div class="book-page__header col col-12">
+        <div class="header__info col col-6">
+          <div class="header__caption">
+            <h1 class="title">
+              {{ fetchedData.title }}
+            </h1>
+            <div class="author">
+              {{ fetchedData.author }}
+            </div>
+          </div>
+        </div>
+        <div class="header__actions col col-6">
+          <div class="counter">
+            {{ fetchedData.upvotes }}
+          </div>
 
-      <article>
+          <template v-if="!fetchedData.upvoted">
+            <button>
+              Upvote
+            </button>
+          </template>
+
+          <template v-if="fetchedData.upvoted">
+            <button disabled>
+              Upvoted
+            </button>
+          </template>
+        </div>
+      </div>
+
+      <div class="book-page__cover col col-12">
+        <img :src="fetchedData.cover">
+      </div>
+
+      <article class="book-page__synopsis col col-12">
         {{ fetchedData.synopsis }}
       </article>
 
-      {{ fetchedData.upvoted }}
-      {{ fetchedData.upvotes }}
-
+      <div class="book-page__rating col col-12">
+        {{ fetchedData.rating }}
+      </div>
     </template>
   </div>
 </template>

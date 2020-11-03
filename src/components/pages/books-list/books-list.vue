@@ -1,17 +1,17 @@
 <template>
-  <div class="container">
+  <div class="top-books">
     <h1>{{ title }}</h1>
     <div class="books-list" v-if="fetchedData.length > 1">
       <div v-for="book in fetchedData" :key="book.slug"
-           class="col col-4 col-m-6 col-xs-12">
+           class="col col-4 col-m-12 col-xs-12">
         <div class="book">
-          <div class="book-cover">
-            <router-link
-                v-bind:to="'/' + book.slug"
-            >
-              <img :scr="book.cover" :alt="book.title">
-            </router-link>
-          </div>
+          <router-link
+              class="book-cover"
+              v-bind:to="'/' + book.slug"
+              :title="book.title"
+              :style="{ backgroundImage: `url(${book.cover})` }">
+          </router-link>
+
           <div class="book-info">
             <div class="title">
               <router-link
@@ -42,7 +42,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Books List'
+      default: 'Top books of all time'
     }
   },
   data: function () {
@@ -59,12 +59,12 @@ export default {
     axios
         .get(baseUrl + 'books')
         .then(
-          response => {
-            this.fetchedData = response.data.books;
-            this.$parent.isLoading = false;
-            // TODO: migrate to v.3 and replace it with a custom event emitting
-            // this.$emit('loading', {isLoading: false})
-          })
+            response => {
+              this.fetchedData = response.data.books;
+              this.$parent.isLoading = false;
+              // TODO: migrate to v.3 and replace it with a custom event emitting
+              // this.$emit('loading', {isLoading: false})
+            })
         .catch(error => {
           // TODO: this error message output is not for production
           if (error.response) {

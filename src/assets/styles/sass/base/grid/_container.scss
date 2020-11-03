@@ -10,16 +10,16 @@
   @include container-core;
 
   @include resolution_widescreen {
-    width: $widescreen - $gutter;
+    width: $desktop - $gutter;
   }
 
   @include resolution_desktop {
-    width: $desktop - $gutter;
+    width: $tablet - $gutter;
   }
 
   @include resolution_tablet {
     width: 100%;
-    max-width: $desktop - $gutter;
+    max-width: $tablet - $gutter;
   }
 
   @include resolution_phablet {

@@ -1,2 +1,11 @@
 @import "sass/base";
-@import "sass/project"; // will be removed
+// Global project styles were initially organized with MCSS methodology
+// to provide simple CSS structure consisting of three layers:
+// - base
+// - project
+// - cosmetic
+//
+// Base layer is common for all app. It provides variables and mixins
+// and other reusable styles.
+// As the project layer is presented with components' incapsulated styles,
+// it was removed. Also the cosmetic layer was redundant for the same reason.

@@ -6,32 +6,30 @@
   background-color: $c-general;
   border-radius: $border-radius-m;
 
-  @include resolution_phablet-and-up {
-    flex-flow: row-reverse;
-    flex-wrap: nowrap;
+  @include resolution_desktop-and-up {
+    flex-flow: column wrap;
+    justify-content: flex-start;
+  }
+
+  @include resolution_smartphone-and-tablet {
+    flex-flow: row-reverse nowrap;
     justify-content: space-between;
   }
 
-  @include resolution_phone {
-    flex-flow: column wrap;
-    justify-content: center;
-  }
-
   .book-cover {
+    $image-width: 100px;
     display: inline-flex;
-    width: 100%;
+    flex: 0 0 $image-width;
+    align-items: flex-start;
+    max-width: $image-width;
+    height: 160px;
+    border-radius: $border-radius;
     margin-bottom: 10px;
+    background: rgba($c-accent, .35) top center / cover; // user will see background while image loading
+    box-shadow: $shadow-light;
 
-    img {
-      height: 200px;
-      width: auto;
-      margin: 0 auto;
-      border-radius: $border-radius-m;
-      box-shadow: $shadow-default;
-
-      @include resolution_phablet-and-up {
-        margin-left: 20px;
-      }
+    @include resolution_smartphone-and-tablet {
+      margin-left: 20px;
     }
   }
 

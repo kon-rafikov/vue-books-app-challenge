@@ -1,5 +1,24 @@
-@import "../../../assets/styles/sass/dependencies";
+@import "src/assets/styles/sass/dependencies";
 
-h1 {
-  color: pink;
+.book-page {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+
+  &__cover {
+    margin-bottom: 20px;
+
+    img {
+      height: 390px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: $border-radius-l;
+      box-shadow: $shadow-default;
+    }
+  }
+
+  &__synopsis {
+
+  }
 }
+

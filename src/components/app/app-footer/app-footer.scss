@@ -1,11 +1,15 @@
+@import "src/assets/styles/sass/dependencies";
+
 footer {
   position: fixed;
   left: 0;
   bottom: 0;
   z-index: z('footer');
   height: $footer-height;
+  width: 100%;
+  padding: 0 30px;
   background-color: $c-gray-500;
-  @extend %wrapper;
+
 
   nav {
     &,
@@ -36,7 +40,7 @@ footer {
           border-radius: $border-radius;
           transition: color, background-color .15s ease-in;
 
-          @extend .link-white;
+          @include link($c-white, $c-gray-100, $c-gray-200, none);
 
           &:hover {
             background-color: rgba($c-white, .05);

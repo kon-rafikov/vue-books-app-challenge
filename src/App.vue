@@ -1,32 +1,56 @@
 <template>
   <div id="app">
-    <div>
-      <router-link to="/">Logo</router-link>
+    <spinner
+        v-show="isLoading"
+    ></spinner>
+    <app-header></app-header>
+    <div class="main">
+      <div class="container">
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </div>
     </div>
-    <router-view
-        :apiData="info"
-    ></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
+  import Spinner from "@/components/ui/spinner/spinner";
+  import AppHeader from "@/components/app/app-header/app-header";
+  import AppFooter from "@/components/app/app-footer/app-footer";
+
   export default {
     name: 'App',
-    data: function () {
+    components: {AppFooter, AppHeader, Spinner},
+    data: function() {
       return {
-        info: null
-      };
+        isLoading: {
+          type: Boolean,
+          default: false
+        }
+      }
     }
   }
-</script>
+</script >
 
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+<style lang="scss">
+  // Transitions
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.2s;
+    transition-property: opacity;
+    transition-timing-function: ease;
   }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
+
+  // this part is global
+  @import "assets/styles/style";
+
+  // this part is scoped
+  @import "components/app/app.scss";
 </style>
