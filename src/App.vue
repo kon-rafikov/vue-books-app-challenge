@@ -1,21 +1,36 @@
 <template>
   <div id="app">
-    <div>
+    <spinner
+        @loading="isAppLoading"
+        v-show="isLoaded"
+    ></spinner>
+    <div class="top-actions">
       <router-link to="/">Logo</router-link>
     </div>
-    <router-view
-        :apiData="info"
-    ></router-view>
+    <div class="main">
+    <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+  import Spinner from "@/components/ui/spinner/spinner";
+
   export default {
     name: 'App',
-    data: function () {
+    components: {Spinner},
+    data: function() {
       return {
-        info: null
-      };
+        isLoaded: false
+      }
+    },
+    methods: {
+      isAppLoading() {
+        console.log('hello event');
+      }
+    },
+    mounted() {
+      console.log(this.isLoaded);
     }
   }
 </script>
@@ -27,6 +42,5 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
 </style>
