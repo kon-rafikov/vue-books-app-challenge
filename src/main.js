@@ -25,6 +25,17 @@ const router = new VueRouter({
   mode: "history",
 });
 
+window.BuildEnv = {
+  production: {
+    baseUrl: ''
+  },
+  development: {
+    baseUrl: 'http://localhost:3000/'
+  }
+};
+
+window.currentBuild = window.BuildEnv.development;
+
 new Vue({
   render: h => h(App),
   router,

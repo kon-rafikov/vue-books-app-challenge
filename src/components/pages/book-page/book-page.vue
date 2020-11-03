@@ -38,18 +38,27 @@
       }
     },
     created() {
-      const queryStr = 'http://localhost:3000/books/' + this.query;
-      const self = this;
+      const baseUrl = window.currentBuild.baseUrl;
+
       axios
-        .get(queryStr)
+        .get(baseUrl + 'books/' + this.query)
         .then(
-          response => (this.fetchedData = response.data),
-          self.$emit('loading', {isLoading: false})
-        )
-        .catch(function (error) {
-          console.warn(error);
-          self.$emit('loading', {isLoading: true});
-        });
+          response => {
+            this.fetchedData = response.data;
+            this.$parent.isLoading = false;
+          })
+          .catch(error => {
+            if (error.response) {
+              // client received an error response
+              console.warn(this.$options.name, error.response);
+            } else if (error.request) {
+              // client didn't receive a response, or request never left
+              console.warn(this.$options.name, error.request);
+            } else {
+              // anything else
+              console.warn(this.$options.name, error);
+            }
+          })
     },
   }
 </script>
