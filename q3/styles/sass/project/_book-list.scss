@@ -1,0 +1,4 @@
+.books-list {
+  @include container-core(stretch);
+  margin: 0 -10px;
+}

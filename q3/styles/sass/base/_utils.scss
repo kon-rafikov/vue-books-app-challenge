@@ -1,0 +1,9 @@
+@function z($layer) {
+  $z-indeces: (
+    'popovers': 50,
+    'footer': 100,
+    'modals': 200
+  );
+
+  @return map-get($z-indeces, $layer);
+}

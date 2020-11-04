@@ -1,0 +1,28 @@
+{
+  "name": "reedsy-q3",
+  "version": "1.0.0",
+  "description": "Reedsy test, question 3",
+  "main": "q3.html",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "autoprefixer": "^9.7.4",
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.19.4",
+    "postcss": "7.0.27",
+    "postcss-cli": "6.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prefixer": "postcss styles/style.css --use=autoprefixer --map=false --output=styles/style.css",
+    "sass": "node-sass --output-style compressed --include-path source styles/style.scss styles/style.css && npm run prefixer",
+    "sass-w": "nodemon -e scss -x npm run sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC"
+}

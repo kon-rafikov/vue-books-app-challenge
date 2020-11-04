@@ -1,0 +1,54 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: z('footer');
+  height: $footer-height;
+  background-color: $c-gray-500;
+  @extend %wrapper;
+
+  nav {
+    &,
+    ul {
+      width: 100%;
+    }
+
+     ul {
+       display: block;
+       height: 100%;
+       font-size: 0;
+       text-align: center;
+       line-height: $footer-height;
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+
+        & > a {
+          display: block;
+          min-width: 100px;
+          padding: 0 10px;
+          height: 38px;
+          font-size: 14px;
+          text-align: center;
+          line-height: 38px;
+          white-space: nowrap;
+          border-radius: $border-radius;
+          transition: color, background-color .15s ease-in;
+
+          @extend .link-white;
+
+          &:hover {
+            background-color: rgba($c-white, .05);
+          }
+
+          &:active {
+            background-color: rgba($c-white, .1);
+          }
+        }
+      }
+    }
+  }
+}
+
+
