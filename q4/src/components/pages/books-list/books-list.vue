@@ -7,7 +7,7 @@
         <div class="book">
           <router-link
               class="book__cover"
-              v-bind:to="'/' + book.slug"
+              v-bind:to="`/book/${book.slug}`"
               :title="book.title"
               :style="{ backgroundImage: `url(${book.cover})` }">
           </router-link>
@@ -15,7 +15,7 @@
           <div class="book__info">
             <h3 class="title">
               <router-link
-                  v-bind:to="'/' + book.slug"
+                  v-bind:to="`/book/${book.slug}`"
               >
                 {{ book.title }}
               </router-link>
@@ -66,7 +66,6 @@ export default {
     }
   },
   created() {
-    console.log(this.fetchedData.length);
     const baseUrl = window.currentBuild.baseUrl;
 
     axios

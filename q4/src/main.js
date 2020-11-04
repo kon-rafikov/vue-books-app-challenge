@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import BooksList from './components/pages/books-list/books-list.vue'
 import BookPage from './components/pages/book-page/book-page.vue'
+import ErrorPage from './components/pages/error-page/error-page.vue'
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -11,18 +12,21 @@ const routes = [
   { path: '/',
     component: BooksList,
   },
-  { path: '/:id',
+  {
+    path: '*',
+    component: ErrorPage,
+  },
+  { path: '/book/:id',
     component: BookPage,
     props:
       route => ({
       query: route.params.id,
     })
-  }
+  },
 ];
 
 const router = new VueRouter({
   routes,
-  mode: "history",
 });
 
 window.BuildEnv = {
@@ -37,11 +41,11 @@ window.BuildEnv = {
 window.currentBuild = window.BuildEnv.development;
 
 new Vue({
-  render: h => h(App),
   router,
   components: {
     BooksList,
-    BookPage
+    BookPage,
   },
+  render: h => h(App),
 }).$mount('#app');
 

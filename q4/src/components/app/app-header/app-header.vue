@@ -8,16 +8,16 @@
       <nav class="top-actions__menu">
         <ul>
           <li>
-            <router-link to="/index">Home</router-link>
+            <router-link to="index">Home</router-link>
           </li>
           <li>
-            <router-link to="/just-added">Just added</router-link>
+            <router-link to="just-added">Just added</router-link>
           </li>
           <li>
             <router-link to="/">Top books</router-link>
           </li>
           <li>
-            <router-link to="/upcoming">Upcoming</router-link>
+            <router-link to="upcoming">Upcoming</router-link>
           </li>
         </ul>
       </nav>
