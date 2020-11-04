@@ -1,3 +1,13 @@
+html {
+  @include resolution_tablet-and-up {
+    font-size: 16px;
+  }
+
+  @include resolution_smartphone {
+    font-size: 12px;
+  }
+}
+
 body {
   position: relative;
   min-width: map-get($breakpointsMap, smartphone);
@@ -13,18 +23,6 @@ body {
 
   &, * {
     box-sizing: border-box;
-  }
-
-  @include resolution_desktop-and-up {
-    font-size: 18px;
-  }
-
-  @include resolution_tablet {
-    font-size: 17px;
-  }
-
-  @include resolution_smartphone {
-    font-size: 16px;
   }
 }
 
