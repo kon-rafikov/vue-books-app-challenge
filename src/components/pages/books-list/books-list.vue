@@ -70,7 +70,7 @@ export default {
     const baseUrl = window.currentBuild.baseUrl;
 
     axios
-        .get(baseUrl + 'books')
+        .get(`${baseUrl}books`)
         .then(
             response => {
               this.fetchedData = response.data.books;
