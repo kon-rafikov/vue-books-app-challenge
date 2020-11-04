@@ -2,15 +2,61 @@
 
 .book-page {
   position: relative;
-  width: 100%;
   padding: 30px;
+
+  &__header {
+    margin-bottom: 20px;
+  }
+  .header__info {
+    .header__caption {
+      .title,
+      .author {
+        width: 100%;
+      }
+
+      .title {
+        font-size: 2rem;
+        color: $c-accent-300;
+        font-weight: 600;
+        margin-bottom: .1em;
+      }
+
+      .author {
+        font-size: 15px;
+        font-style: italic;
+        color: $c-gray-400;
+      }
+    }
+  }
+
+  .header__actions {
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+
+    .app-button {
+      margin-left: 10px;
+    }
+
+    .counter {
+      font-size: 13px;
+    }
+  }
+
+  &__cover,
+  &__synopsis {
+    display: block;
+    width: 100%;
+    flex: none;
+  }
 
   &__cover {
     margin-bottom: 20px;
 
     img {
-      height: 390px;
+      height: auto;
       width: auto;
+      max-width: 350px;
       margin: 0 auto;
       border-radius: $border-radius-l;
       box-shadow: $shadow-default;
@@ -18,7 +64,15 @@
   }
 
   &__synopsis {
+    h2 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+    }
+  }
 
+  &__actions {
+    margin-top: 30px;
+    font-weight: 600;
   }
 }
 

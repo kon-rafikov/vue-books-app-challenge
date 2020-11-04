@@ -35,6 +35,12 @@
       font-weight: 600;
       margin-bottom: .5em;
 
+      &::before,
+      a,
+      .rating {
+        vertical-align: middle;
+      }
+
       .rating {
         font-size: 15px;
         color: $c-gray-500;

@@ -46,3 +46,16 @@
   }
 }
 
+// Blocks visibility
+.desktop {
+  @include resolution_smartphone-and-tablet {
+    display: none;
+  }
+}
+
+.mobile {
+  @include resolution_desktop-and-up {
+    display: none;
+  }
+}
+

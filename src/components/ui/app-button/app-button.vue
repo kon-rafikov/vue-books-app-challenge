@@ -1,6 +1,11 @@
 <template>
-  <button :disabled="isDisabled">
-    <slot></slot>
+  <button
+    :disabled="isDisabled"
+    v-on:click="click"
+    class="app-button">
+    <span class="app-button__text">
+      <slot></slot>
+    </span>
   </button>
 </template>
 
@@ -12,7 +17,8 @@ export default {
       isDisabled: {
         default: false,
         type: Boolean
-      }
+      },
+      click: Function
     }
   }
 }
