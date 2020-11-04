@@ -36,9 +36,7 @@
   // Transitions
   .fade-enter-active,
   .fade-leave-active {
-    transition-duration: 0.2s;
-    transition-property: opacity;
-    transition-timing-function: ease;
+    transition: opacity .15s ease;
   }
 
   .fade-enter,
