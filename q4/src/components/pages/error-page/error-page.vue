@@ -1,23 +1,19 @@
 <template>
-  <div class="container error-page">
-    <div class="col col-12 error-page__title">
-      404
-    </div>
-    <div class="col col-12 error-page__description">
+  <div class="container">
+    <not-found-block>
       This page doesn't exist
-    </div>
+    </not-found-block>
   </div>
 </template>
 
 <script>
+  import NotFoundBlock from "@/components/ui/not-found-block/not-found-block";
   export default {
     name: 'ErrorPage',
+    components: {NotFoundBlock},
     mounted() {
       this.$parent.isLoading = false;
     }
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "error-page";
-</style>
