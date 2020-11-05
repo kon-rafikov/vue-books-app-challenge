@@ -8,8 +8,7 @@
 ---
 <p>
 <small>
-Sorry, a lot of things are not done yet. I got used to Angular 2+. To accomplish 
-the 4th assignment of this project I learned Vue v.2 and then v.3 within a few days.
+Sorry, a lot of things are not done yet.
 </small>
 </p>
 
